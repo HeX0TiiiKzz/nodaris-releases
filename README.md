@@ -45,7 +45,9 @@ On a fresh server, as root or with sudo:
 curl -fsSL https://github.com/HeX0TiiiKzz/nodaris-releases/releases/latest/download/install.sh | sudo bash
 ```
 
-The installer asks a few questions, then sets up the panel, its database, nginx and HTTPS. Sign in with the administrator account you create along the way.
+The installer asks a few questions, then sets up the panel, its database, nginx and HTTPS. Suggested values are already in their field, ready to be edited, **‹ Previous** goes back one question, and any answer can be changed on the review screen.
+
+Once the panel runs, a setup guide takes over in the console: location, node, ports, a final check of the panel and the node, then how to create your first server. Select the step you are on: a step is only ticked when the panel really shows it done. Open it again at any time with `sudo nodaris setup`.
 
 | | Requirements |
 |---|---|
@@ -56,11 +58,12 @@ The installer asks a few questions, then sets up the panel, its database, nginx 
 
 ## 🖥️ Add a node
 
-A node is the machine that runs your game servers. It can be the same machine as the panel.
+A node is the machine that runs your game servers. It can be the same machine as the panel. The setup guide walks you through this, with `sudo nodaris setup`:
 
 1. In the panel, create a node in **Admin → Nodes**.
-2. Open its **Configuration** tab and copy the install command.
-3. Run it on the machine, and paste the token when the installer asks for it.
+2. Open its **Configuration** tab and copy the **Node token**.
+3. In the guide, select **Configure the node**. Choose **This server** to install it here, or **Another server** to get the command to run on that machine.
+4. Paste the token when the installer asks for it.
 
 The installer sets up Docker and the Nodaris daemon. Your servers then start, stop and show their live console in the client area.
 
@@ -105,6 +108,7 @@ The installer sets up Docker and the Nodaris daemon. Your servers then start, st
 
 ### ⚙️ Easy to run
 - One-command installer with a clear console
+- A setup guide and a final check, from a fresh panel to your first server
 - One-click updates from the admin panel
 - Automatic rollback if an update fails
 - Built-in help centre for administrators
@@ -141,6 +145,7 @@ Open **Admin → Overview** and press **Update**: the panel checks for a new ver
 
 | Command | What it does |
 |---|---|
+| `nodaris setup` | Opens the setup guide: location, node, final check, first server |
 | `nodaris status` | Shows what is running |
 | `nodaris logs` | Follows the panel logs |
 | `nodaris update` | Installs the latest version |
@@ -153,17 +158,23 @@ Open **Admin → Overview** and press **Update**: the panel checks for a new ver
 
 | Part | State |
 |---|---|
-| Accounts, roles, 2FA, activity log, webhooks, themes | ✅ Working |
-| Databases, import and export | ✅ Tested on MariaDB 10.11 |
-| One-click updates and rollback | ✅ Tested on a real systemd |
-| Node daemon: power, console, files, backups, SFTP | ✅ Tested with a real Paper server in Docker |
-| A real player joining with the game | 🟡 Not tried yet |
+| Panel installer: packages, MariaDB, nginx, systemd | ✅ Validated with the published command, on a machine without a panel |
+| Setup guide and final check | ✅ Validated from a fresh panel to a running server |
+| Node installer: Docker and the daemon | ✅ Validated, panel and node on the same machine |
+| Node daemon: power, console, files, backups, SFTP | ✅ Validated with a real Paper server in Docker |
+| Accounts, roles, 2FA, activity log, webhooks, themes | ✅ Validated |
+| Databases, import and export | ✅ Validated on MariaDB 10.11 |
+| Updates: `nodaris update`, one-click updates, rollback | ✅ Validated on a real systemd |
+| Removing the panel | ✅ Validated |
+| Removing a node | 🟡 Not tried yet |
+| A node on a second machine | 🟡 Not tried yet |
+| A real player joining with the game | 🟡 Not tried yet: the server answers the Minecraft status protocol |
 | Schedules, collaborators, player list | 🟡 Still simulated, and they say so |
 | Quick downloads | 🟡 Listed and logged, no file reaches a machine yet |
 | A VPS on the Internet: UFW, Let's Encrypt, HTTPS | 🔴 Not validated yet |
 | Debian, Ubuntu 22.04 and 26.04, ARM | 🔴 Not validated yet |
 
-All of this was tested on Ubuntu 24.04 under WSL2, over HTTP.
+✅ means it really ran on Ubuntu 24.04 under WSL2, over HTTP. Everything else is listed as it stands.
 
 <div align="center">
 
