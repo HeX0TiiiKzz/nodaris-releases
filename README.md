@@ -35,7 +35,7 @@ Install it with one command, manage everything from your browser.
 </p>
 
 > [!WARNING]
-> **Nodaris is an early preview.** It has been tested end to end on Ubuntu 24.04 under WSL2, not yet on a VPS exposed to the Internet. [See what works today](#-project-status), and use a machine you can wipe.
+> **Nodaris is an early preview.** It runs on a real VPS, but UFW, Let's Encrypt and HTTPS are not validated yet. [See what works today](#-project-status), and use a machine you can wipe.
 
 ## 🚀 Install
 
@@ -138,6 +138,12 @@ The installer sets up Docker and the Nodaris daemon. Your servers then start, st
 
 Open **Admin → Overview** and press **Update**: the panel checks for a new version, shows a progress bar, and asks you to refresh when it is done. If a step fails, it puts everything back as it was.
 
+A node on the same machine is updated with the panel. A node on another machine is updated there:
+
+```bash
+curl -fsSL https://github.com/HeX0TiiiKzz/nodaris-releases/releases/latest/download/install-node.sh | sudo bash -s -- --update
+```
+
 > [!NOTE]
 > Coming from 0.5 or older? Run `nodaris update` once on the server. This installs the one-click updater, and you will not need SSH for updates after that.
 
@@ -148,7 +154,7 @@ Open **Admin → Overview** and press **Update**: the panel checks for a new ver
 | `nodaris setup` | Opens the setup guide: location, node, final check, first server |
 | `nodaris status` | Shows what is running |
 | `nodaris logs` | Follows the panel logs |
-| `nodaris update` | Installs the latest version |
+| `nodaris update` | Installs the latest version, on the panel and on a node of the same machine |
 | `nodaris repair` | Fixes the panel and keeps your data |
 | `nodaris user:reset-password` | Resets a forgotten password |
 | `nodaris user:disable-2fa` | Unlocks an account that lost its two-factor device |
@@ -160,6 +166,7 @@ Open **Admin → Overview** and press **Update**: the panel checks for a new ver
 |---|---|
 | Panel installer: packages, MariaDB, nginx, systemd | ✅ Validated with the published command, on a machine without a panel |
 | Setup guide and final check | ✅ Validated from a fresh panel to a running server |
+| Panel, node and a Minecraft server on a real VPS | ✅ Validated |
 | Node installer: Docker and the daemon | ✅ Validated, panel and node on the same machine |
 | Node daemon: power, console, files, backups, SFTP | ✅ Validated with a real Paper server in Docker |
 | Accounts, roles, 2FA, activity log, webhooks, themes | ✅ Validated |
@@ -171,10 +178,10 @@ Open **Admin → Overview** and press **Update**: the panel checks for a new ver
 | A real player joining with the game | 🟡 Not tried yet: the server answers the Minecraft status protocol |
 | Schedules, collaborators, player list | 🟡 Still simulated, and they say so |
 | Quick downloads | 🟡 Listed and logged, no file reaches a machine yet |
-| A VPS on the Internet: UFW, Let's Encrypt, HTTPS | 🔴 Not validated yet |
+| UFW, Let's Encrypt and HTTPS on a VPS | 🔴 Not validated yet |
 | Debian, Ubuntu 22.04 and 26.04, ARM | 🔴 Not validated yet |
 
-✅ means it really ran on Ubuntu 24.04 under WSL2, over HTTP. Everything else is listed as it stands.
+✅ means it really ran: on Ubuntu 24.04 under WSL2 over HTTP, and on a real VPS where that line says so. Everything else is listed as it stands.
 
 <div align="center">
 
