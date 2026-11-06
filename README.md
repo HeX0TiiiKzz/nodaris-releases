@@ -88,7 +88,8 @@ The installer sets up Docker and the Nodaris daemon. Your servers then start, st
 - Locations, nodes, allocations, servers, nests, eggs and mounts
 - Node daemon in Go, with an installer of its own
 - Roles with full, fine-grained permissions
-- Community egg catalogue, installed in one click
+- A catalogue of 185 games and 262 versions, installed in one click
+- Picking a game reserves the ports it needs
 - Activity log: who created, edited or deleted what
 - Discord webhooks with a fully editable embed
 
@@ -169,13 +170,14 @@ curl -fsSL https://github.com/HeX0TiiiKzz/nodaris-releases/releases/latest/downl
 | Panel, node and a Minecraft server on a real VPS | ✅ Validated |
 | Node installer: Docker and the daemon | ✅ Validated, panel and node on the same machine |
 | Node daemon: power, console, files, backups, SFTP | ✅ Validated with a real Paper server in Docker |
+| Game catalogue | 🟡 83 of 262 versions tried: 47 answered on their port, the others are listed in the release notes |
 | Accounts, roles, 2FA, activity log, webhooks, themes | ✅ Validated |
 | Databases, import and export | ✅ Validated on MariaDB 10.11 |
 | Updates: `nodaris update`, one-click updates, rollback | ✅ Validated on a real systemd |
 | Removing the panel | ✅ Validated |
 | Removing a node | 🟡 Not tried yet |
 | A node on a second machine | 🟡 Not tried yet |
-| A real player joining with the game | 🟡 Not tried yet: the server answers the Minecraft status protocol |
+| A real player joining with the game | 🟡 Not tried yet: servers answer on their port, and Paper answers the Minecraft status protocol |
 | Schedules, collaborators, player list | 🟡 Still simulated, and they say so |
 | Quick downloads | 🟡 Listed and logged, no file reaches a machine yet |
 | UFW, Let's Encrypt and HTTPS on a VPS | 🔴 Not validated yet |
