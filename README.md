@@ -90,6 +90,8 @@ The installer sets up Docker and the Nodaris daemon. Your servers then start, st
 - Roles with full, fine-grained permissions
 - A catalogue of 185 games and 262 versions, installed in one click
 - Picking a game reserves the ports it needs
+- Memory and disk menus that show what is left on the node
+- API for billing software, with a WHMCS module
 - Activity log: who created, edited or deleted what
 - Discord webhooks with a fully editable embed
 
@@ -161,6 +163,15 @@ curl -fsSL https://github.com/HeX0TiiiKzz/nodaris-releases/releases/latest/downl
 | `nodaris user:disable-2fa` | Unlocks an account that lost its two-factor device |
 | `nodaris uninstall` | Removes the panel |
 
+## 🔒 Privacy
+
+The installer asks whether the panel may send its status to the central Nodaris dashboard. The answer is no by default, and nothing is sent without an answer.
+
+- **If you say yes:** the panel's address, version, machine resources, number of nodes and servers, and each server's game type, port and state. Never a name, a file or any access.
+- **If you say no:** one empty, anonymous request so that refusals can be counted, then nothing.
+
+You can change your answer any time in **Admin → Settings**.
+
 ## 🚧 Project status
 
 | Part | State |
@@ -171,6 +182,8 @@ curl -fsSL https://github.com/HeX0TiiiKzz/nodaris-releases/releases/latest/downl
 | Node installer: Docker and the daemon | ✅ Validated, panel and node on the same machine |
 | Node daemon: power, console, files, backups, SFTP | ✅ Validated with a real Paper server in Docker |
 | Game catalogue | 🟡 83 of 262 versions tried: 47 answered on their port, the others are listed in the release notes |
+| Billing API and WHMCS module | 🟡 Ran against a real panel with a stand-in for WHMCS, not yet in a real WHMCS |
+| Databases reached by game servers | ✅ Validated with a real game server, port 3306 closed to everyone else |
 | Accounts, roles, 2FA, activity log, webhooks, themes | ✅ Validated |
 | Databases, import and export | ✅ Validated on MariaDB 10.11 |
 | Updates: `nodaris update`, one-click updates, rollback | ✅ Validated on a real systemd |
