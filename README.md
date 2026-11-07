@@ -35,7 +35,7 @@ Install it with one command, manage everything from your browser.
 </p>
 
 > [!WARNING]
-> **Nodaris is an early preview.** It runs on a real VPS, but UFW, Let's Encrypt and HTTPS are not validated yet. [See what works today](#-project-status), and use a machine you can wipe.
+> **Nodaris is an early preview.** It runs on a real VPS, but Let's Encrypt and HTTPS are not validated yet. [See what works today](#-project-status), and use a machine you can wipe.
 
 ## 🚀 Install
 
@@ -176,27 +176,28 @@ The status goes to `https://nodaris-panel.com`, encrypted. `CENTRAL_URL` in `.en
 
 | Part | State |
 |---|---|
-| Panel installer: packages, MariaDB, nginx, systemd | ✅ Validated with the published command, on a machine without a panel |
+| Panel installer: packages, MariaDB, nginx, systemd | ✅ Validated from a clean machine, on all six systems |
 | Setup guide and final check | ✅ Validated from a fresh panel to a running server |
 | Panel, node and a Minecraft server on a real VPS | ✅ Validated |
-| Node installer: Docker and the daemon | ✅ Validated, panel and node on the same machine |
-| Node daemon: power, console, files, backups, SFTP | ✅ Validated with a real Paper server in Docker |
+| Node installer: Docker and the daemon | ✅ Validated from a clean machine, on all six systems |
+| Node daemon: power, console, files, backups, SFTP | ✅ Validated with a real game in Docker, on all six systems |
 | Game catalogue | 🟡 83 of 262 versions tried: 47 answered on their port, the others are listed in the release notes |
 | Billing API and WHMCS module | 🟡 Ran against a real panel with a stand-in for WHMCS, not yet in a real WHMCS |
-| Databases reached by game servers | ✅ Validated with a real game server, port 3306 closed to everyone else |
+| Databases reached by game servers | ✅ Validated on all six systems, port 3306 refused from another Docker network |
 | Accounts, roles, 2FA, activity log, webhooks, themes | ✅ Validated |
-| Databases, import and export | ✅ Validated on MariaDB 10.11 |
-| Updates: `nodaris update`, one-click updates, rollback | ✅ Validated on a real systemd |
-| Removing the panel | ✅ Validated |
-| Removing a node | 🟡 Not tried yet |
-| A node on a second machine | 🟡 Not tried yet |
-| A real player joining with the game | 🟡 Not tried yet: servers answer on their port, and Paper answers the Minecraft status protocol |
+| Databases, import and export | ✅ Validated on MariaDB 10.6, 10.11 and 11.8 |
+| Updates: `nodaris update`, one-click updates, rollback | ✅ Validated from the published 0.6.13 to 0.6.14, with a game running |
+| Removing the panel | ✅ Validated on all six systems |
+| Removing a node | ✅ Validated on all six systems |
+| A node on a second machine | ✅ Validated with a virtual machine, not yet across the internet |
+| A real player joining with the game | ✅ Validated with the real Minetest client on a Luanti server, not yet with Minecraft |
 | Schedules, collaborators, player list | 🟡 Still simulated, and they say so |
 | Quick downloads | 🟡 Listed and logged, no file reaches a machine yet |
-| UFW, Let's Encrypt and HTTPS on a VPS | 🔴 Not validated yet |
-| Debian, Ubuntu 22.04 and 26.04, ARM | 🔴 Not validated yet |
+| UFW | ✅ Validated on all six systems |
+| Let's Encrypt and HTTPS on a panel | 🔴 Not validated yet: every run above was over HTTP |
+| Ubuntu 22.04, 24.04 and 26.04, Debian 12 and 13, ARM | ✅ Validated: these are the six systems, ARM on Ubuntu 24.04 |
 
-✅ means it really ran: on Ubuntu 24.04 under WSL2 over HTTP, and on a real VPS where that line says so. Everything else is listed as it stands.
+✅ means it really ran over HTTP: on GitHub machines, in virtual machines for Debian and Ubuntu 26.04, and on a real VPS where that line says so. Everything else is listed as it stands.
 
 <div align="center">
 
