@@ -161,7 +161,7 @@ curl -fsSL https://github.com/HeX0TiiiKzz/nodaris-releases/releases/latest/downl
 | `nodaris repair` | Fixes the panel and keeps your data |
 | `nodaris user:reset-password` | Resets a forgotten password |
 | `nodaris user:disable-2fa` | Unlocks an account that lost its two-factor device |
-| `nodaris uninstall` | Removes the panel |
+| `nodaris uninstall` | Shows what is on the server, then removes everything or only the panel |
 
 ## 🔒 Privacy
 
