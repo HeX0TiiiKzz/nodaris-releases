@@ -170,7 +170,7 @@ The installer asks whether the panel may send its status to the central Nodaris 
 - **If you say yes:** the panel's address, version, machine resources, number of nodes and servers, and each server's game type, port and state. Never a name, a file or any access.
 - **If you say no:** one empty, anonymous request so that refusals can be counted, then nothing.
 
-The status goes to the IP of the central dashboard over http, so it is unencrypted. `CENTRAL_URL` in `.env` takes another address, and left empty it sends nothing. You can stop any time with `sudo nodaris telemetry off`.
+The status goes to `https://nodaris-panel.com`, encrypted. `CENTRAL_URL` in `.env` takes another address, and left empty it sends nothing. You can stop any time with `sudo nodaris telemetry off`.
 
 ## 🚧 Project status
 
